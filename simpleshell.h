@@ -150,7 +150,7 @@ void *_realloc(void *, unsigned int, unsigned int);
 int bfree(void **);
 
 int interactive(infoP *);
-int is_delim(char, char *);
+int isDelim(char, char *);
 int _isalpha(int);
 int _atoi(char *);
 
