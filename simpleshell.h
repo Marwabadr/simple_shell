@@ -123,7 +123,7 @@ int loophsh(char **);
 
 void _eputs(char *);
 int _eputchar(char);
-int _putfld(char , int);
+int _putfld(char, int);
 int _putsfd(char *, int);
 
 int _strlen(char *);
