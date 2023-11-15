@@ -123,13 +123,8 @@ int loophsh(char **);
 
 void _eputs(char *);
 int _eputchar(char);
-<<<<<<< HEAD
-int _putfld(char, int);
-int _putsfd(char *, int);
-=======
-int _putfld(char ch, int fld);
-int _putsfd(char *string, int filed);
->>>>>>> 05cf84a14f92c8ad38cf3a9db1d896661503de3e
+int _putfd(char c, int fd);
+int _putsfd(char *str, int fd);
 
 int _strlen(char *);
 int _strcmp(char *, char *);

@@ -41,17 +41,17 @@ int _eputchar(char cr)
 /**
  * _putfd - write char
  * @ch: char
- * @fld: fileDescriptor
+ * @fd: fileDescriptor
  * Return: 1
  */
-int _putfld(char ch, int fld)
+int _putfd(char ch, int fd)
 {
 	static int i;
 	static char buff[MY_WRITE_BUF_S];
 
 	if (ch == MY_BUF_F || i >= MY_WRITE_BUF_S)
 	{
-		write(fld, buff, i);
+		write(fd, buff, i);
 		i = 0;
 	}
 	if (ch != MY_BUF_F)
@@ -73,7 +73,7 @@ int _putsfd(char *string, int filed)
 		return (0);
 	while (*string)
 	{
-		i += _putfld(*string++, filed);
+		i += _putfd(*string++, filed);
 	}
 	return (i);
 }
