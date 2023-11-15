@@ -72,7 +72,7 @@ int _myunsetenv(infoP *infoP)
 
 /**
  * populateEnvList - populatesenvlist
- * @info: infoP structure
+ * @infoP: infoP structure
  * Return: 0
  */
 int populateEnvList(infoP *infoP)
