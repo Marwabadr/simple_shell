@@ -14,7 +14,7 @@ int _myexit(infoP *infoP)
 		if (exitChecker == -1)
 		{
 			infoP->stat = 2;
-			print_error(infoP, "Illegal number: ");
+			printError(infoP, "Illegal number: ");
 			_eputs(infoP->argv[1]);
 			_eputchar('\n');
 			return (1);
@@ -41,7 +41,7 @@ int _mycd(infoP *infoP)
 		_puts("TODO: >>getcwd failmsg here<<\n");
 	if (!infoP->argv[1])
 	{
-		dire = _getenv(info, "HOME=");
+		dire = _getenv(infoP, "HOME=");
 		if (!dire)
 			chdirRet = chdir((dire = _getenv(infoP, "PWD=")) ? dire : "/");
 		else

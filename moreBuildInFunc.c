@@ -67,7 +67,7 @@ int printAlias(strL *nodeA)
 	if (nodeA)
 	{
 		pP = _strchr(nodeA->string, '=');
-		for (aA = node->string; aA <= pP; aA++)
+		for (aA = nodeA->string; aA <= pP; aA++)
 			_putchar(*aA);
 		_putchar('\'');
 		_puts(pP + 1);
