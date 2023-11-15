@@ -124,7 +124,7 @@ int loophsh(char **);
 void _eputs(char *);
 int _eputchar(char);
 int _putfd(char c, int fd);
-int _putsfd(char *str, int ld);
+int _putsfd(char *str, int fd);
 
 int _strlen(char *);
 int _strcmp(char *, char *);
