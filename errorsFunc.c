@@ -73,7 +73,7 @@ int _putsfd(char *string, int filed)
 		return (0);
 	while (*string)
 	{
-		i += _putfd(*string++, filed);
+		i += _putfld(*string++, filed);
 	}
 	return (i);
 }
