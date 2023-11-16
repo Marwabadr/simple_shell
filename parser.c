@@ -43,7 +43,7 @@ char *dupChars(char *pathst, int strt, int stp)
 /**
  * findPath - find cmd in path
  * @info: infoP struct
- * @pathst: path 
+ * @pathst: path
  * @cmd: command
  * Return: pathCmd
  */

@@ -1,7 +1,7 @@
 #include "simpleshell.h"
 
 /**
- * listLen - length of list 
+ * listLen - length of list
  * @h: pointer
  * Return: size
  */
@@ -77,7 +77,7 @@ size_t printList(const listS *h)
 
 /**
  * nodeStartsWith - string start with prefix
- * @node: pointer 
+ * @node: pointer
  * @prf: prefix
  * @c: next char
  * Return: node, null

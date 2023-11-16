@@ -12,7 +12,7 @@ int _myhistory(infoP *info)
 }
 
 /**
- * unset_alias - set al to str
+ * unsetAlias - set al to str
  * @info: infoP struct
  * @stral: str alais
  *

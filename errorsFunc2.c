@@ -32,7 +32,7 @@ int _erratoi(char *st)
  * @info: infoP srtuct
  * @stre: error string
  */
-void print_error(infoP *info, char *stre)
+void printError(infoP *info, char *stre)
 {
 	_eputs(info->fname);
 	_eputs(": ");

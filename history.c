@@ -25,7 +25,7 @@ char *getHistoryFile(infoP *info)
 
 /**
  * writeHistory - create a file
- * @info: infoP 
+ * @info: infoP
  * Return: 1 sinon -1
  */
 int writeHistory(infoP *info)

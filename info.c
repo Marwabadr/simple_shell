@@ -47,9 +47,9 @@ void setInfo(infoP *info, char **agv)
 /**
  * freeInfo - free infoP struct
  * @info: infoP struct
- * @allf: all field->true 
+ * @allf: all field->true
  */
-void free_info(infoP *info, int allf)
+void freeInfo(infoP *info, int allf)
 {
 	ffree(info->argv);
 	info->argv = NULL;

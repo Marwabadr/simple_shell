@@ -33,7 +33,7 @@ listS *addNode(listS **h, const char *st, int n)
 }
 
 /**
- * addNodeEnd - add a node end 
+ * addNodeEnd - add a node end
  * @h: address
  * @st: string
  * @n: node index
@@ -92,7 +92,7 @@ size_t printListStr(const listS *h)
 }
 
 /**
- * deleteNodeAtIndex - delete node 
+ * deleteNodeAtIndex - delete node
  * @h: address
  * @ind: index
  * Return: 1 sinon 0
@@ -125,7 +125,7 @@ int deleteNodeAtIndex(listS **h, unsigned int ind)
 		}
 		i++;
 		prevnod = nod;
-		nod= nod->next;
+		nod = nod->next;
 	}
 	return (0);
 }

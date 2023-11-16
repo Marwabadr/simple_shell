@@ -50,7 +50,7 @@ int _unsetenv(infoP *info, char *v)
 /**
  * _setenv - init a new env var
  * @info: infoP sruct
- * @v: env var 
+ * @v: env var
  * @val: env var value
  *  Return: 0
  */
