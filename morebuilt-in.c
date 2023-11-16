@@ -67,7 +67,7 @@ int printAlias(listS *nodeal)
 	if (nodeal)
 	{
 		ptr = _strchr(nodeal->str, '=');
-		for (ap = node->str; ap <= ptr; ap++)
+		for (ap = nodeal->str; ap <= ptr; ap++)
 			_putchar(*ap);
 		_putchar('\'');
 		_puts(ptr + 1);
