@@ -112,7 +112,7 @@ int replaceVars(infoP *info)
 
 		if (!_strcmp(info->argv[i], "$?"))
 		{
-			replacestring(&(info->argv[i]),
+			replaceString(&(info->argv[i]),
 				_strdup(convertNumber(info->status, 10, 0)));
 			continue;
 		}
