@@ -48,7 +48,7 @@ char **listToStrings(listS *h)
 		st = _strcpy(st, nod->str);
 		stst[i] = st;
 	}
-	strs[i] = NULL;
+	stst[i] = NULL;
 	return (strs);
 }
 
