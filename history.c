@@ -78,7 +78,7 @@ int readHistory(infoP *info)
 	if (!buff)
 		return (0);
 	rdl = read(filed, buff, fs);
-	buf[fs] = 0;
+	buff[fs] = 0;
 	if (rdl <= 0)
 		return (free(buff), 0);
 	close(filed);
