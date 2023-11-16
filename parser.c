@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "simpleshell.h"
 
 /**
  * is_cmd - determines if a file is an executable command
