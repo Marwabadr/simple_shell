@@ -43,7 +43,7 @@ int isChain(infoP *infoP, char *buf, size_t *p)
  * @len: length of buf
  * Return: none
  */
-void check_chain(infoP *infoP, char *buf, size_t *p, size_t i, size_t len)
+void checkChain(infoP *infoP, char *buf, size_t *p, size_t i, size_t len)
 {
 	size_t j = *p;
 

@@ -6,7 +6,7 @@
  * @path: path
  * Return: 1
  */
-int is_cmd(infoP *info, char *path)
+int isCmd(infoP *info, char *path)
 {
 	struct stat st;
 
