@@ -1,32 +1,30 @@
 #include "simpleshell.h"
 
 /**
- * _myenv - prints the current environment
- * @info: Structure containing potential arguments. Used to maintain
- *          constant function prototype.
- * Return: Always 0
+ * _myenv - print cur env
+ * @info: infoP struct
+ * Return: 0
  */
-int _myenv(info_t *info)
+int _myenv(infoP *info)
 {
-	print_list_str(info->env);
+	printListStr(info->env);
 	return (0);
 }
 
 /**
- * _getenv - gets the value of an environ variable
- * @info: Structure containing potential arguments. Used to maintain
- * @name: env var name
- *
- * Return: the value
+ * _getenv - get env var value
+ * @info: infoP struct
+ * @varname: envvar name
+ * Return: val
  */
-char *_getenv(info_t *info, const char *name)
+char *_getenv(infoP *info, const char *varname)
 {
-	list_t *node = info->env;
+	listS *node = info->env;
 	char *p;
 
 	while (node)
 	{
-		p = starts_with(node->str, name);
+		p = startsWith(node->str, varname);
 		if (p && *p)
 			return (p);
 		node = node->next;
@@ -35,13 +33,11 @@ char *_getenv(info_t *info, const char *name)
 }
 
 /**
- * _mysetenv - Initialize a new environment variable,
- *             or modify an existing one
- * @info: Structure containing potential arguments. Used to maintain
- *        constant function prototype.
- *  Return: Always 0
+ * _mysetenv - init new env
+ * @info: infoP struct
+ *  Return: 0
  */
-int _mysetenv(info_t *info)
+int _mysetenv(infoP *info)
 {
 	if (info->argc != 3)
 	{
@@ -54,12 +50,11 @@ int _mysetenv(info_t *info)
 }
 
 /**
- * _myunsetenv - Remove an environment variable
- * @info: Structure containing potential arguments. Used to maintain
- *        constant function prototype.
- *  Return: Always 0
+ * _myunsetenv - remove env var
+ * @info: infoP struct
+ *  Return: 0
  */
-int _myunsetenv(info_t *info)
+int _myunsetenv(infoP *info)
 {
 	int i;
 
@@ -75,18 +70,17 @@ int _myunsetenv(info_t *info)
 }
 
 /**
- * populate_env_list - populates env linked list
- * @info: Structure containing potential arguments. Used to maintain
- *          constant function prototype.
- * Return: Always 0
+ * populateEnvList - populate envlist
+ * @info: infoP struct
+ * Return: 0
  */
-int populate_env_list(info_t *info)
+int populateEnvList(infoP *info)
 {
-	list_t *node = NULL;
+	listS *node = NULL;
 	size_t i;
 
 	for (i = 0; environ[i]; i++)
-		add_node_end(&node, environ[i], 0);
+		addNodeEnd(&node, environ[i], 0);
 	info->env = node;
 	return (0);
 }

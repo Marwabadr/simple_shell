@@ -1,16 +1,15 @@
 #include "simpleshell.h"
 
 /**
- * get_environ - returns the string array copy of our environ
- * @info: Structure containing potential arguments. Used to maintain
- *          constant function prototype.
- * Return: Always 0
+ * getEnviron - string copied in env
+ * @info: infoP structure
+ * Return: char
  */
-char **get_environ(info_t *info)
+char **getEnviron(infoP *info)
 {
 	if (!info->environ || info->env_changed)
 	{
-		info->environ = list_to_strings(info->env);
+		info->environ = listToStrings(info->env);
 		info->env_changed = 0;
 	}
 
@@ -18,76 +17,73 @@ char **get_environ(info_t *info)
 }
 
 /**
- * _unsetenv - Remove an environment variable
- * @info: Structure containing potential arguments. Used to maintain
- *        constant function prototype.
- *  Return: 1 on delete, 0 otherwise
- * @var: the string env var property
+ * _unsetenv - remove envvar
+ * @info: infoP structure
+ * @v: env var
+ *  Return: 1 del 0 sinon
  */
-int _unsetenv(info_t *info, char *var)
+int _unsetenv(infoP *info, char *v)
 {
-	list_t *node = info->env;
+	listS *nod = info->env;
 	size_t i = 0;
-	char *p;
+	char *ptr;
 
-	if (!node || !var)
+	if (!nod || !v)
 		return (0);
 
-	while (node)
+	while (nod)
 	{
-		p = starts_with(node->str, var);
-		if (p && *p == '=')
+		ptr = starts_with(nod->str, v);
+		if (ptr && *ptr == '=')
 		{
-			info->env_changed = delete_node_at_index(&(info->env), i);
+			info->env_changed = deleteNodeAtIndex(&(info->env), i);
 			i = 0;
-			node = info->env;
+			nod = info->env;
 			continue;
 		}
-		node = node->next;
+		nod = nod->next;
 		i++;
 	}
 	return (info->env_changed);
 }
 
 /**
- * _setenv - Initialize a new environment variable,
- *             or modify an existing one
- * @info: Structure containing potential arguments. Used to maintain
- *        constant function prototype.
- * @var: the string env var property
- * @value: the string env var value
- *  Return: Always 0
+ * _setenv - init a new env var
+ * @info: infoP sruct
+ * @v: env var 
+ * @val: env var value
+ *  Return: 0
  */
-int _setenv(info_t *info, char *var, char *value)
+int _setenv(infoP *info, char *v, char *val)
 {
-	char *buf = NULL;
-	list_t *node;
-	char *p;
+	char *buff = NULL;
+	listS *nod;
+	char *ptr;
 
-	if (!var || !value)
+	if (!v || !val)
 		return (0);
 
-	buf = malloc(_strlen(var) + _strlen(value) + 2);
-	if (!buf)
+	buff = malloc(_strlen(v) + _strlen(val) + 2);
+	if (!buff)
 		return (1);
-	_strcpy(buf, var);
-	_strcat(buf, "=");
-	_strcat(buf, value);
-	node = info->env;
-	while (node)
+	_strcpy(buff, v);
+	_strcat(buff, "=");
+	_strcat(buff, val);
+	nod = info->env;
+	while (nod)
 	{
-		p = starts_with(node->str, var);
-		if (p && *p == '=')
+		ptr = startsWith(nod->str, v);
+		if (ptr && *ptr == '=')
 		{
-			free(node->str);
-			node->str = buf;
+			free(nod->str);
+			nod->str = buff;
 			info->env_changed = 1;
 			return (0);
 		}
-		node = node->next;
+		nod = nod->next;
 	}
-	add_node_end(&(info->env), buf, 0);
-	free(buf);
+	addNodeEnd(&(info->env), buff, 0);
+	free(buff);
 	info->env_changed = 1;
 	return (0);
 }

@@ -1,10 +1,9 @@
 #include "simpleshell.h"
 
 /**
- * _strlen - returns the length of a string
- * @s: the string whose length to check
- *
- * Return: integer length of string
+ * _strlen - len of a string
+ * @s: string
+ * Return: len of str
  */
 int _strlen(char *s)
 {
@@ -19,11 +18,10 @@ int _strlen(char *s)
 }
 
 /**
- * _strcmp - performs lexicogarphic comparison of two strangs.
- * @s1: the first strang
- * @s2: the second strang
- *
- * Return: negative if s1 < s2, positive if s1 > s2, zero if s1 == s2
+ * _strcmp - comparer deux strings alpha
+ * @s1: str1
+ * @s2: str2
+ * Return: -1,1,0
  */
 int _strcmp(char *s1, char *s2)
 {
@@ -41,26 +39,25 @@ int _strcmp(char *s1, char *s2)
 }
 
 /**
- * starts_with - checks if needle starts with haystack
- * @haystack: string to search
- * @needle: the substring to find
- *
- * Return: address of next char of haystack or NULL
+ * startsWith - needlestart withhaystack
+ * @ht: haystack
+ * @nd: needle
+ * Return: addresse
  */
-char *starts_with(const char *haystack, const char *needle)
+char *startsWith(const char *ht, const char *nd)
 {
-	while (*needle)
-		if (*needle++ != *haystack++)
+	while (*nd)
+		if (*nd++ != *ht++)
 			return (NULL);
-	return ((char *)haystack);
+	return ((char *)ht);
 }
 
 /**
- * _strcat - concatenates two strings
- * @dest: the destination buffer
- * @src: the source buffer
+ * _strcat - concatenation de deux strings
+ * @dest: dest
+ * @src: source
  *
- * Return: pointer to destination buffer
+ * Return: dest pointer
  */
 char *_strcat(char *dest, char *src)
 {

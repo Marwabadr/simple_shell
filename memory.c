@@ -1,17 +1,17 @@
 #include "simpleshell.h"
 
 /**
- * bfree - frees a pointer and NULLs the address
- * @ptr: address of the pointer to free
+ * bfree - free a pointer address to NULL
+ * @potr: address
  *
- * Return: 1 if freed, otherwise 0.
+ * Return: 1  free sinon 0
  */
-int bfree(void **ptr)
+int bfree(void **potr)
 {
-	if (ptr && *ptr)
+	if (pptr && *potr)
 	{
-		free(*ptr);
-		*ptr = NULL;
+		free(*potr);
+		*potr = NULL;
 		return (1);
 	}
 	return (0);

@@ -1,85 +1,80 @@
 #include "simpleshell.h"
 
 /**
- *_eputs - prints an input string
- * @str: the string to be printed
- *
- * Return: Nothing
+ *_eputs - print string
+ * @string: string
+ * Return: none
  */
-void _eputs(char *str)
+void _eputs(char *string)
 {
 	int i = 0;
 
-	if (!str)
+	if (!string)
 		return;
-	while (str[i] != '\0')
+	while (string[i] != '\0')
 	{
-		_eputchar(str[i]);
+		_eputchar(string[i]);
 		i++;
 	}
 }
 
 /**
- * _eputchar - writes the character c to stderr
- * @c: The character to print
+ * _eputchar - character to stderr
+ * @ch: character
  *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
+ * Return: 1,-1,errno
  */
-int _eputchar(char c)
+int _eputchar(char ch)
 {
 	static int i;
-	static char buf[WRITE_BUF_SIZE];
+	static char buff[WRITEBUFSIZE];
 
-	if (c == BUF_FLUSH || i >= WRITE_BUF_SIZE)
+	if (ch == BUFFLUSH || i >= WRITEBUFSIZE)
 	{
-		write(2, buf, i);
+		write(2, buff, i);
 		i = 0;
 	}
-	if (c != BUF_FLUSH)
-		buf[i++] = c;
+	if (ch != BUFFLUSH)
+		buff[i++] = ch;
 	return (1);
 }
 
 /**
- * _putfd - writes the character c to given fd
- * @c: The character to print
- * @fd: The filedescriptor to write to
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
+ * _putfd - write char to filedescriptor
+ * @ch: character
+ * @filed: filedescriptor
+ * Return: 1,-1,errno
  */
-int _putfd(char c, int fd)
+int _putfd(char ch, int filed)
 {
 	static int i;
-	static char buf[WRITE_BUF_SIZE];
+	static char buff[WRITEBUFSIZE];
 
-	if (c == BUF_FLUSH || i >= WRITE_BUF_SIZE)
+	if (ch == BUFFLUSH || i >= WRITEBUFSIZE)
 	{
-		write(fd, buf, i);
+		write(filed, buff, i);
 		i = 0;
 	}
-	if (c != BUF_FLUSH)
-		buf[i++] = c;
+	if (ch != BUFFLUSH)
+		buff[i++] = ch;
 	return (1);
 }
 
 /**
- *_putsfd - prints an input string
- * @str: the string to be printed
- * @fd: the filedescriptor to write to
- *
- * Return: the number of chars put
+ *_putsfd - print input str
+ * @string: string
+ * @filed: filedescriptor
+ * Return: count of char
  */
-int _putsfd(char *str, int fd)
+int _putsfd(char *string, int filed)
 {
 	int i = 0;
 
-	if (!str)
+	if (!string)
 		return (0);
-	while (*str)
+	while (*string)
 	{
-		i += _putfd(*str++, fd);
+		i += _putfd(*string++, filed);
 	}
 	return (i);
 }

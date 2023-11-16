@@ -1,74 +1,73 @@
 #include "simpleshell.h"
 
 /**
- * interactive - returns true if shell is interactive mode
- * @info: struct address
- *
- * Return: 1 if interactive mode, 0 sinon
+ * interactive - interactive mode
+ * @info: infoP structure
+ * Return: 1
  */
-int interactive(info_t *info)
+int interactive(infoP *info)
 {
 	return (isatty(STDIN_FILENO) && info->readfd <= 2);
 }
 
 /**
- * is_delim - checks if character is a delimeter
- * @c: the char to check
- * @delim: the delimeter string
- * Return: 1 if true, 0 if false
+ * isDelim - delimeter
+ * @ch: cahr
+ * @D: delimeter
+ * Return: 1 sinon 0
  */
-int is_delim(char c, char *delim)
+int isDelim(char ch, char *D)
 {
-	while (*delim)
-		if (*delim++ == c)
+	while (*D)
+		if (*D++ == ch)
 			return (1);
 	return (0);
 }
 
 /**
- *_isalpha - checks for alphabetic character
- *@c: The character to input
- *Return: 1 if c is alphabetic, 0 otherwise
+ *_isalpha - alpha char
+ *@ch: char
+ *Return: 1 sinon 0
  */
 
-int _isalpha(int c)
+int _isalpha(int ch)
 {
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+	if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z'))
 		return (1);
 	else
 		return (0);
 }
 
 /**
- *_atoi - converts a string to an integer
- *@s: the string to be converted
- *Return: 0 if no numbers in string, converted number otherwise
+ *_atoi - str to int
+ *@st: string
+ *Return: 0  sinon output
  */
 
-int _atoi(char *s)
+int _atoi(char *st)
 {
-	int i, sign = 1, flag = 0, output;
-	unsigned int result = 0;
+	int i, signe = 1, f = 0, out;
+	unsigned int resultat = 0;
 
-	for (i = 0;  s[i] != '\0' && flag != 2; i++)
+	for (i = 0;  st[i] != '\0' && f != 2; i++)
 	{
-		if (s[i] == '-')
-			sign *= -1;
+		if (st[i] == '-')
+			signe *= -1;
 
-		if (s[i] >= '0' && s[i] <= '9')
+		if (st[i] >= '0' && st[i] <= '9')
 		{
-			flag = 1;
-			result *= 10;
-			result += (s[i] - '0');
+			f = 1;
+			resultat *= 10;
+			resultat += (st[i] - '0');
 		}
-		else if (flag == 1)
-			flag = 2;
+		else if (f == 1)
+			f = 2;
 	}
 
-	if (sign == -1)
-		output = -result;
+	if (signe == -1)
+		out = -resultat;
 	else
-		output = result;
+		out = resultat;
 
-	return (output);
+	return (out);
 }

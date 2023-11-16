@@ -1,11 +1,10 @@
 #include "simpleshell.h"
 
 /**
- * _strcpy - copies a string
- * @dest: the destination
- * @src: the source
- *
- * Return: pointer to destination
+ * _strcpy - copy a string
+ * @dest: destination
+ * @src:  source
+ * Return: dest pointer
  */
 char *_strcpy(char *dest, char *src)
 {
@@ -23,33 +22,32 @@ char *_strcpy(char *dest, char *src)
 }
 
 /**
- * _strdup - duplicates a string
- * @str: the string to duplicate
- *
- * Return: pointer to the duplicated string
+ * _strdup - duplicatestr
+ * @str: source
+ * Return: pointer
  */
 char *_strdup(const char *str)
 {
-	int length = 0;
-	char *ret;
+	int leng = 0;
+	char *retu;
 
 	if (str == NULL)
 		return (NULL);
 	while (*str++)
-		length++;
-	ret = malloc(sizeof(char) * (length + 1));
-	if (!ret)
+		leng++;
+	retu = malloc(sizeof(char) * (leng + 1));
+	if (!retu)
 		return (NULL);
-	for (length++; length--;)
-		ret[length] = *--str;
-	return (ret);
+	for (leng++; leng--;)
+		retu[leng] = *--str;
+	return (retu);
 }
 
 /**
- *_puts - prints an input string
- *@str: the string to be printed
+ *_puts - print input str
+ *@str: string
  *
- * Return: Nothing
+ * Return: none void
  */
 void _puts(char *str)
 {
@@ -65,23 +63,21 @@ void _puts(char *str)
 }
 
 /**
- * _putchar - writes the character c to stdout
- * @c: The character to print
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
+ * _putchar - write char to stdout
+ * @c: character
+ * Return: On success 1,-1,errno
  */
 int _putchar(char c)
 {
 	static int i;
-	static char buf[WRITE_BUF_SIZE];
+	static char buff[WRITEBUFSIZE];
 
-	if (c == BUF_FLUSH || i >= WRITE_BUF_SIZE)
+	if (c == BUFFLUSH || i >= WRITEBUFSIZE)
 	{
-		write(1, buf, i);
+		write(1, buff, i);
 		i = 0;
 	}
-	if (c != BUF_FLUSH)
-		buf[i++] = c;
+	if (c != BUFFLUSH)
+		buff[i++] = c;
 	return (1);
 }

@@ -1,10 +1,10 @@
 #include "simpleshell.h"
 
 /**
- * clear_info - initializes info_t struct
- * @info: struct address
+ * clearInfo - init infoP struct
+ * @info: infoP struct
  */
-void clear_info(info_t *info)
+void clearInfo(infoP *info)
 {
 	info->arg = NULL;
 	info->argv = NULL;
@@ -13,15 +13,15 @@ void clear_info(info_t *info)
 }
 
 /**
- * set_info - initializes info_t struct
+ * setInfo - init infoP struct
  * @info: struct address
- * @av: argument vector
+ * @agv: argument vector
  */
-void set_info(info_t *info, char **av)
+void setInfo(infoP *info, char **agv)
 {
 	int i = 0;
 
-	info->fname = av[0];
+	info->fname = agv[0];
 	if (info->arg)
 	{
 		info->argv = strtow(info->arg, " \t");
@@ -39,36 +39,36 @@ void set_info(info_t *info, char **av)
 			;
 		info->argc = i;
 
-		replace_alias(info);
-		replace_vars(info);
+		replaceAlias(info);
+		replaceVars(info);
 	}
 }
 
 /**
- * free_info - frees info_t struct fields
- * @info: struct address
- * @all: true if freeing all fields
+ * freeInfo - free infoP struct
+ * @info: infoP struct
+ * @allf: all field->true 
  */
-void free_info(info_t *info, int all)
+void free_info(infoP *info, int allf)
 {
 	ffree(info->argv);
 	info->argv = NULL;
 	info->path = NULL;
-	if (all)
+	if (allf)
 	{
 		if (!info->cmd_buf)
 			free(info->arg);
 		if (info->env)
-			free_list(&(info->env));
+			freeList(&(info->env));
 		if (info->history)
-			free_list(&(info->history));
+			freeList(&(info->history));
 		if (info->alias)
-			free_list(&(info->alias));
+			freeList(&(info->alias));
 		ffree(info->environ);
 			info->environ = NULL;
 		bfree((void **)info->cmd_buf);
 		if (info->readfd > 2)
 			close(info->readfd);
-		_putchar(BUF_FLUSH);
+		_putchar(BUFFLUSH);
 	}
 }
