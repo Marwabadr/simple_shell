@@ -15,7 +15,7 @@ int _myexit(infoP *info)
 		if (exitC == -1)
 		{
 			info->status = 2;
-			print_error(info, "Illegal number: ");
+			printError(info, "Illegal number: ");
 			_eputs(info->argv[1]);
 			_eputchar('\n');
 			return (1);

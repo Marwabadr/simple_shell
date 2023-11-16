@@ -33,7 +33,7 @@ int _unsetenv(infoP *info, char *v)
 
 	while (nod)
 	{
-		ptr = starts_with(nod->str, v);
+		ptr = startsWith(nod->str, v);
 		if (ptr && *ptr == '=')
 		{
 			info->env_changed = deleteNodeAtIndex(&(info->env), i);

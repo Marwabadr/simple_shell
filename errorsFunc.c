@@ -21,7 +21,6 @@ void _eputs(char *string)
 /**
  * _eputchar - character to stderr
  * @ch: character
- *
  * Return: 1,-1,errno
  */
 int _eputchar(char ch)

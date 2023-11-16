@@ -64,7 +64,7 @@ void checkChain(infoP *info, char *buff, size_t *pt, size_t i, size_t len)
 		}
 	}
 
-	*pb = j;
+	*pt = j;
 }
 
 /**

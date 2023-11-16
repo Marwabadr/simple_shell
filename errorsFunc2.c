@@ -11,7 +11,7 @@ int _erratoi(char *st)
 	unsigned long int resultat = 0;
 
 	if (*st == '+')
-		st++;  /* TODO: why does this make main return 255? */
+		st++;
 	for (i = 0;  st[i] != '\0'; i++)
 	{
 		if (st[i] >= '0' && st[i] <= '9')

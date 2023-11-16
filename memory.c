@@ -8,7 +8,7 @@
  */
 int bfree(void **potr)
 {
-	if (pptr && *potr)
+	if (potr && *potr)
 	{
 		free(*potr);
 		*potr = NULL;
