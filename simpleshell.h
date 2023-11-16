@@ -91,7 +91,7 @@ typedef struct passInf
 	int histcount;
 } infoP;
 
-#define INFO_INIT \
+#define INFOINIT \
 {NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, \
 	0, 0, 0}
 
