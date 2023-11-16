@@ -19,7 +19,7 @@ int main(int agc, char **agv)
 
 	if (agc == 2)
 	{
-		filed = open(av[1], O_RDONLY);
+		filed = open(agv[1], O_RDONLY);
 		if (filed == -1)
 		{
 			if (errno == EACCES)
