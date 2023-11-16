@@ -49,7 +49,7 @@ char **listToStrings(listS *h)
 		stst[i] = st;
 	}
 	stst[i] = NULL;
-	return (strs);
+	return (stst);
 }
 
 
